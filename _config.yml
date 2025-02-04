@@ -1,0 +1,146 @@
+# Site
+repository: Git repository where your resume will be hosted, only required if you are hosting on GitHub (eg. sproogen/modern-resume-theme)
+# favicon: Directory of your favicon (eg. images/favicon.ico)(optional)
+
+# Content configuration version
+version: 2
+
+# Personal info
+name: Juheng Wu
+title: Software Development Engineer 
+email: juhengwu@gmail.com
+# email_title: Email (Email title override)
+phone: 415-518-6992
+# phone_title: Phone (Phone title override)
+website: https://github.com/juhengwu
+# Dark Mode (true/false/never)
+darkmode: never
+
+# Social links
+github_username:  juhengwu
+instagram_username: juhengwu_
+linkedin_username: juheng-wu-3474471ba
+
+# Additional icon links
+# - title: another link
+#   icon: font awesome brand icon name (eg. fab fa-twitter) (https://fontawesome.com/icons?d=gallery&s=brands&m=free)
+#   url: Link url (eg. https://google.com)
+
+# Google Analytics and Tag Manager
+# Using more than one of these may cause issues with reporting
+# gtm: "GTM-0000000"
+# gtag: "UA-00000000-0"
+# google_analytics: "UA-00000000-0"
+
+# About Section
+# about_title: About Me (Use this to override about section title)
+about_profile_image: assets/profile.jpg
+about_content: | # this will include new lines to allow paragraphs
+  Hi, My name is Juheng! I’m a software engineer with a passion for full-stack development, AI, and bioinformatics. I love solving complex problems, optimizing systems, and building cool projects that make an impact.
+  
+  I most skilled at Python, C++, Java, Html5, AWS...
+content:
+  - title: Projects # Title for the section
+    layout: list # Type of content section (list/text)
+    content:
+      - layout: top-middle
+        border: weak  # Value of `weak` will display a weak border below this item. # Any 
+                      # other value (or no value) means no border will be displayed
+        title: ScopeAI
+        link: https://github.com/juhengwu/ScopeAI
+        link_text: github.com/juhengwu
+        additional_links:
+          - title:  juhengwu/ScopeAI
+            icon: fab fa-github
+            url: https://github.com/juhengwu/ScopeAI
+        quote: >
+          ScopeAI is the future of intelligent object recognition—if you don’t see its potential, you’re probably not looking hard enough.
+        description: | # this will include new lines to allow paragraphs
+          I started this project to explore the integration of AI-driven image recognition with interactive visualization, and it has since evolved into a powerful, scalable tool. Through this journey, I have gained valuable experience in computer vision, preprocessing algorithms, and API integration, all while pushing the boundaries of what's possible in AI-assisted object scanning. I’m incredibly proud of this project and its potential for future applications in AR/VR. If you haven’t built something this exciting yet, now is the time to start.
+      - layout: top-middle
+        border: weak
+        title: PantryPal
+        link: https://github.com/ucsd-cse110-fa23/cse-110-project-team-14
+        link_text: github.com/ucsd-cse110-fa23
+        additional_links:
+          - title: ucsd-cse110-fa23/cse-110-project-team-14
+            icon: fab fa-github
+            url: https://github.com/ucsd-cse110-fa23/cse-110-project-team-14
+        quote: >
+          PantryPal transforms your fridge into a personal chef—speak your ingredients, get a recipe, and enjoy a customized meal!
+        description: |
+          PantryPal is an innovative and interactive recipe-generation app built using JavaFX. It allows users to speak aloud the ingredients they have in their refrigerator, and based on this input, it generates a customized meal recipe along with a visually appealing meal image. Users can save their generated meals to a personal collection, making it easy to revisit them whenever they log in again. 
+
+          This project challenged me to work with voice recognition technology, natural language processing (NLP), and JavaFX for a rich and engaging user experience. Additionally, PantryPal includes user authentication and account-based meal tracking, ensuring a personalized experience. Whether you're unsure what to cook or want a fun way to explore new recipes, PantryPal makes meal planning effortless.   
+      - layout: top-middle
+        border: weak
+        title: ZooSeeker
+        link: https://github.com/dennisliang01/zooseeker
+        link_text: github.com/dennisliang01
+        additional_links:
+          - title: dennisliang01/zooseeker
+            icon: fab fa-github
+            url: https://github.com/dennisliang01/zooseeker
+        quote: >
+          ZooSeeker is your ultimate zoo navigation companion—explore exhibits effortlessly and optimize your visit like never before.
+        description: |
+          This project was designed to enhance zoo exploration through an intelligent route-planning system. ZooSeeker helps users navigate exhibits efficiently, reducing unnecessary walking and ensuring they make the most of their trip. It integrates GPS tracking, optimized pathfinding, and an intuitive UI for a seamless experience. Throughout its development, I honed my skills in mobile development, UI/UX design, and algorithm optimization. Whether you're visiting a zoo for the first time or are a frequent explorer, ZooSeeker makes every visit better.          
+  - title: Experience
+    layout: list
+    content:
+    - layout: top-left
+      title: UCSD CSSA
+      sub_title: Website Maintenance Engineer
+      caption: November 2024 - Present
+      link: https://www.ucsdcssa.com/#/home
+      quote: >
+        UCSD CSSA is a student organization that connects Chinese students, providing resources, networking opportunities, and events.
+      description: | 
+        Responsible for maintaining and improving the UCSD CSSA website, ensuring smooth functionality and an engaging user experience. 
+        - Implemented new UI/UX features to enhance usability.  
+        - Managed server configurations and optimized website performance.  
+        - Collaborated with other student leaders to provide technical solutions for event management. 
+
+
+  - title: Education
+    layout: list
+    content:
+      - layout: top-left
+        title: University of California, San Diego
+        sub_title: B.S. & M.S. Computer Science Engineering
+        caption: 2022 - 2025
+        quote: Established in 1960, the University of California, San Diego (UCSD) is a top-ranked public research university known for its cutting-edge innovation, rigorous academics, and strong emphasis on interdisciplinary collaboration. Recognized globally for its contributions to science, engineering, and the humanities, UCSD consistently ranks among the world's leading institutions.
+        description: | # this will include new lines to allow paragraphs
+          During my time at UCSD I learned most of my key skills that have I have taken through my career such as teamwork and working to tight deadlines. I thouroughly enjoyed my time as university and learnt a lot about a healthy work life balance. I spent a lot of my free time as a committee member of the Harvard Mountaineering Club taking on roles such as Trip Secretary and Vice-President.
+  - title: A Little More About Me
+    layout: text
+    content: | # this will include new lines to allow paragraphs
+      I’m a team player and a natural leader who enjoys collaborating to bring creative ideas to life. I have a strong appreciation for clean design and art, always striving for aesthetics that are both functional and visually appealing. Outside of work, I love socializing, playing basketball, skiing, and diving into video games. Whether leading a project or working as part of a team, I’m always driven by passion and creativity.
+
+# Footer
+footer_show_references: true
+# references_title: References on request (Override references text)
+
+# Build settings
+# theme: modern-resume-theme (Use this is you are hosting your resume yourself)
+# remote_theme: sproogen/modern-resume-theme (Use this if you are hosting your resume on GitHub)
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+plugins:
+ - jekyll-seo-tag
+
+exclude : [
+  "Gemfile",
+  "Gemfile.lock",
+  "node_modules",
+  "vendor/bundle/",
+  "vendor/cache/",
+  "vendor/gems/",
+  "vendor/ruby/",
+  "lib/",
+  "scripts/",
+  "docker-compose.yml",
+  ]

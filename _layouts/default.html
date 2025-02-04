@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+
+{%- include head.html -%}
+
+<body class="{% if site.darkmode == true and site.darkmode != 'never' %}dark{% endif %}">
+    <style> 
+        /* 修改1：移除全局溢出隐藏 */
+        body, html {
+            margin: 0;
+            padding: 0;
+            /* 移除 height: 100% 和 overflow: hidden */
+            perspective: 1000px;
+            scroll-behavior: smooth; /* 让所有锚点的跳转变平滑 */
+        }
+
+        /* 新增视频容器 */
+        .video-section {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* 新增内容区域样式 */
+
+        /* 保持原有logo和导航样式 */
+        .logo-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transform-style: preserve-3d;
+            transition: transform 0.1s;
+        }
+        .logo {
+            max-width: 300px;
+            transition: transform 0.1s;
+        }
+        .nav-menu {
+            position: fixed;
+            top: 30px;
+            left: 40px;
+            z-index: 1000;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-link {
+            color: #969494; /* 默认灰色 */
+            text-decoration: none;
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        /* Home保持白色 */
+        .nav-item:first-child .nav-link {
+            color: #fff;
+        }
+
+        /* 悬停效果 */
+        .nav-link:hover {
+            color: #fff !important;
+            transform: translateY(-2px);
+        }
+
+        /* 移除分隔线 */
+        .nav-item:not(:last-child)::after {
+            content: none;
+        }
+    </style>
+</head>
+<body>
+    <section class="video-section">
+        <video class="video-background" autoplay muted loop>
+            <source src="assets/videos/cloud.mp4" type="video/mp4">
+            您的浏览器不支持视频标签。
+        </video>
+        <div class="logo-container">
+            <img src="assets/juheng.png" alt="品牌Logo" class="logo">
+        </div>
+        <nav class="nav-container">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="home.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#project" class="nav-link" id="project-link">Projects</a></li>
+                <li class="nav-item"><a href="https://github.com/juhengwu" class="nav-link" target="_blank">Github</a></li>
+            </ul>
+        </nav>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const logo = document.querySelector('.logo');
+            const container = document.querySelector('.logo-container');
+            const containerRect = container.getBoundingClientRect();
+            const centerX = containerRect.left + containerRect.width/2;
+            const centerY = containerRect.top + containerRect.height/2;
+
+            document.addEventListener('mousemove', (e) => {
+                // 计算鼠标相对中心点的位置
+                const mouseX = e.clientX - centerX;
+                const mouseY = e.clientY - centerY;
+                
+                // 计算旋转角度（限制最大旋转角度为15度）
+                const rotateY = (mouseX / window.innerWidth) * 20;  // X轴偏移量控制Y轴旋转
+                const rotateX = -(mouseY / window.innerHeight) * 20; // Y轴偏移量控制X轴旋转
+
+                // 计算位移比例（可选）
+                const translateX = (mouseX / window.innerWidth) * 1;
+                const translateY = (mouseY / window.innerHeight) * 1;
+
+                // 应用3D变换
+                logo.style.transform = `
+                    rotateX(${rotateX}deg) 
+                    rotateY(${rotateY}deg) 
+                    translate(${translateX}px, ${translateY}px)
+                `;
+                
+                // 容器透视增强（可选）
+                container.style.transform = `
+                    translate(-50%, -50%)
+                    translateZ(${-Math.abs(rotateY)}px)
+                `;
+            });
+        });
+
+        // 平滑滚动到项目部分
+        document.querySelector("#project-link").addEventListener("click", function(event) {
+            event.preventDefault(); // 阻止默认的跳转行为
+            document.querySelector("#project").scrollIntoView({ behavior: "smooth" });
+        });
+    </script>
+
+    <script>
+        // 可选：添加导航栏交互效果
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+
+  {%- include header.html -%}
+
+  <main class="page-content" aria-label="Content">
+    <div class="wrapper">
+
+      {%- if jekyll.environment == 'production' and site.gtm -%}
+        {%- include gtm_body.html -%}
+      {%- endif -%}
+
+      {%- include about.html -%}
+
+      {%- if site.version == 2 -%}
+        {% for section in site.content %}
+          <div class="container {{ section.layout }}-container">
+            <h3 id="{{ section.title | slugify }}">{{ section.title }}</h3>
+            {% include {{ section.layout | prepend: "section-" | append: ".html" }} content=section.content %}
+          </div>
+        {% endfor %}
+      {% else %}
+        {%- include v1/default.html -%}
+      {%- endif -%}
+    </div>
+  </main>
+
+  {%- include footer.html -%}
+  {% if site.darkmode == false %}
+    <script src="{{ '/assets/js/index.js' | relative_url }}"></script>
+  {% endif %}
+</body>
+
+</html>
