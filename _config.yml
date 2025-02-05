@@ -36,9 +36,14 @@ linkedin_username: juheng-wu-3474471ba
 # about_title: About Me (Use this to override about section title)
 about_profile_image: assets/profile.jpg
 about_content: | # this will include new lines to allow paragraphs
+  >
+  <em>"Less is more." — Mies</em>
+
   Hi, My name is Juheng! I’m a software engineer with a passion for full-stack development, AI, and bioinformatics. I love solving complex problems, optimizing systems, and building cool projects that make an impact.
   
   I most skilled at Python, C++, Java, Html5, AWS...
+
+  
 content:
   - title: Projects # Title for the section
     layout: list # Type of content section (list/text)
@@ -88,6 +93,16 @@ content:
   - title: Experience
     layout: list
     content:
+    - layout: top-left
+      title: Center for Visual Computing @ UCSD
+      sub_title: Undergrad Computer Graphic Researcher
+      caption: September 2022 – June 2023
+      quote: >
+        UCSD Center for Visual Computing conducts cutting-edge research in computer graphics, vision, and interaction.
+      description: | 
+        Conducted research on differential operators on discrete meshes.
+        - Developed novel techniques to enhance the efficiency and accuracy of computational simulations in graphics.  
+        - Explored applications of research findings in rendering, virtual reality, and computer-aided design.  
     - layout: top-left
       title: UCSD CSSA
       sub_title: Website Maintenance Engineer
